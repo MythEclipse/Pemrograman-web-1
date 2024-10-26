@@ -1,0 +1,28 @@
+{
+  "name": "pemrograman-web-1",
+  "version": "1.0.0",
+  "description": "Praktikum Pemrograman Web 1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MythEclipse/Pemrograman-web-1.git"
+  },
+  "author": "Asep Haryana Saputra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MythEclipse/Pemrograman-web-1/issues"
+  },
+  "homepage": "https://github.com/MythEclipse/Pemrograman-web-1#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
