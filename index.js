@@ -42,9 +42,15 @@ app.get('/', (req, res) => {
                     padding: 20px;
                     background-color: #f4f4f9;
                 }
-                h1, h2 {
+                h1 {
                     color: #333;
                     text-align: center;
+                    margin-bottom: 40px;
+                }
+                h2 {
+                    color: #0073e6;
+                    text-align: center;
+                    margin-top: 40px;
                 }
                 ul {
                     list-style-type: none;
@@ -54,19 +60,22 @@ app.get('/', (req, res) => {
                 }
                 li {
                     margin: 10px 0;
-                    padding: 10px;
+                    padding: 15px;
                     background: #0073e6;
                     text-align: center;
                     border-radius: 8px;
-                    transition: background 0.3s ease;
+                    transition: background 0.3s ease, transform 0.3s ease;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 }
                 li a {
                     color: #fff;
                     text-decoration: none;
                     font-weight: bold;
+                    display: block;
                 }
                 li:hover {
                     background: #005bb5;
+                    transform: translateY(-5px);
                 }
             </style>
         </head>
