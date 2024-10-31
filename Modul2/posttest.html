@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posttest</title>
+  </head>
+  <body>
+    <form action="#" method="post">
+      <label for="matakuliah">Nama Matakuliah:</label>
+      <input
+        type="text"
+        id="matakuliah"
+        name="matakuliah"
+        required
+      /><br /><br />
+      <label for="dosen">Nama Dosen:</label>
+      <input type="text" id="dosen" name="dosen" required /><br /><br />
+      <label for="sks">SKS:</label>
+      <input
+        type="number"
+        id="sks"
+        name="sks"
+        min="1"
+        max="6"
+        required
+      /><br /><br />
+      <label for="mahasiswa">Nama Mahasiswa:</label>
+      <input type="text" id="mahasiswa" name="mahasiswa" required /><br /><br />
+      <label for="kehadiran">Jumlah Kehadiran:</label>
+      <input
+        type="number"
+        id="kehadiran"
+        name="kehadiran"
+        min="0"
+        max="16"
+        required
+      /><br /><br />
+      <label for="nilai_tugas">Nilai Tugas:</label>
+      <input
+        type="number"
+        id="nilai_tugas"
+        name="nilai_tugas"
+        min="0"
+        max="100"
+        required
+      /><br /><br />
+      <label for="nilai_quiz">Nilai Quiz:</label>
+      <input
+        type="number"
+        id="nilai_quiz"
+        name="nilai_quiz"
+        min="0"
+        max="100"
+        required
+      /><br /><br />
+      <label for="nilai_uts">Nilai UTS:</label>
+      <input
+        type="number"
+        id="nilai_uts"
+        name="nilai_uts"
+        min="0"
+        max="100"
+        required
+      /><br /><br />
+      <label for="nilai_uas">Nilai UAS:</label>
+      <input
+        type="number"
+        id="nilai_uas"
+        name="nilai_uas"
+        min="0"
+        max="100"
+        required
+      /><br /><br />
+      <label for="nilai_akhir">Nilai Akhir:</label>
+      <input
+        type="number"
+        id="nilai_akhir"
+        name="nilai_akhir"
+        min="0"
+        max="100"
+        required
+      /><br /><br />
+      <label for="nilai_huruf">Nilai Huruf:</label>
+      <select id="nilai_huruf" name="nilai_huruf" required>
+        <option value="">Pilih Nilai Huruf</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option></select
+      ><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
