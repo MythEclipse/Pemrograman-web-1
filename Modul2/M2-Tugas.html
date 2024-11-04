@@ -9,10 +9,6 @@
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
                 background-color: #f2f2f2;
             }
             .form-container {
@@ -20,9 +16,9 @@
                 padding: 30px;
                 border-radius: 5px;
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-                width: 80%;
-                max-width: 800px;
-                margin: 20px auto;
+                width: 100%;
+                height: 100vh;
+                box-sizing: border-box;
             }
             h1 {
                 text-align: center;
@@ -79,7 +75,7 @@
         </style>
     </head>
     <body>
-        <div class="form-container"></div>
+        <div class="form-container">
             <h1>Form Pemesanan</h1>
             <form>
                 <div class="form-group">
@@ -90,7 +86,7 @@
                     <label for="nama_pemesan">Nama Pemesan:</label>
                     <input type="text" id="nama_pemesan" name="nama_pemesan" required />
                 </div>
-                <div class="form-group"></div>
+                <div class="form-group">
                     <label for="nomor_identitas">Nomor Identitas:</label>
                     <input type="text" id="nomor_identitas" name="nomor_identitas" required />
                 </div>
@@ -103,7 +99,7 @@
                         <option value="family">FAMILY</option>
                     </select>
                 </div>
-                <div class="form-group">
+                <div class="form-group"></div>
                     <label for="harga">Harga:</label>
                     <input type="number" id="harga" name="harga" required />
                 </div>
@@ -111,7 +107,7 @@
                     <label for="tanggal_pesan">Tanggal Pesan:</label>
                     <input type="date" id="tanggal_pesan" name="tanggal_pesan" required />
                 </div>
-                <div class="form-group">
+                <div class="form-group"></div>
                     <label for="durasi_menginap">Durasi Menginap:</label>
                     <input type="number" id="durasi_menginap" name="durasi_menginap" required /> Hari
                 </div>
@@ -119,7 +115,7 @@
                     <input type="checkbox" id="termasuk_breakfast" name="termasuk_breakfast" />
                     <label for="termasuk_breakfast">Termasuk Breakfast</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group"></div>
                     <label for="total_bayar">Total Bayar:</label>
                     <input type="number" id="total_bayar" name="total_bayar" required />
                 </div>
