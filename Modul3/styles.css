@@ -1,0 +1,10 @@
+body {
+    background-color: blue; /* Background biru */
+}
+
+#teks {
+    color: green; /* Warna teks hijau */
+    text-align: left; /* Rata kiri */
+    font-family: 'Monotype Corsiva', cursive; /* Jenis huruf Monotype Corsiva */
+}
+
