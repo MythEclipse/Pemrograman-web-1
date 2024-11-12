@@ -5,89 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Best Hotel</title>
   <link rel="stylesheet" href="Tugas/css/styles.css">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body, ul, li { margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; }
-    header { background: #333; color: #fff; padding: 1rem; }
-    header h1 { display: inline; margin-right: 2rem; }
-    nav ul { list-style-type: none; display: flex; }
-    nav ul li { position: relative; }
-
-    nav ul > li > a {
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      display: block;
-    }
-    nav ul > li > a:hover { background-color: #444; }
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #666;
-      min-width: 200px;
-      z-index: 10;
-      padding: 10px 0;
-      border: 1px solid #444;
-    }
-    .dropdown a {
-      color: #fff;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      display: block;
-      width: 100%;
-    }
-    .dropdown a:hover { background-color: #777; }
-
-    .dropdown .sub-dropdown {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 100%;
-      background: #444;
-      min-width: 200px;
-      margin-left: 5px;
-      border: 1px solid #333;
-    }
-
-    nav ul li:hover > .dropdown { display: block; }
-    .dropdown li:hover > .sub-dropdown { display: block; }
-  </style>
 </head>
 <body>
   <div class="wrapper">
     <header>
-      <h1>BEST HOTEL</h1>
+      <div style="background-color : #444; color : white; text-align : center; display : flex; align-items : center; justify-content : center; gap : 200px;">
+        <h2>Best Hotel</h2>
+        <img src = "../Modul1/gambar/modern-hotel-room-with-stunning-city-view_14117-1135861.jpg" width = "885" height = "160">
+    </div>
       <nav>
         <ul>
           <li><a href="Tugas/home.html" target="content-frame">Home</a></li>
           <li><a href="Tugas/rooms.html" target="content-frame">Kamar</a></li>
-          <li>
-            <a href="Tugas/facilities.html" target="content-frame">Fasilitas</a>
-            <ul class="dropdown">
-              <li><a href="Tugas/facilities.html">Petualangan Alam</a></li>
-              <li>
-                <a href="Tugas/facilities.html">Kolam Renang</a>
-                <ul class="sub-dropdown">
-                  <li><a href="Tugas/facilities.html">Sumber Air Panas</a></li>
-                  <li>
-                    <a href="Tugas/facilities.html">Kolam Anak & Dewasa</a>
-                    <ul class="sub-dropdown">
-                      <li><a href="Tugas/facilities.html">Reguler</a></li>
-                      <li><a href="Tugas/facilities.html">Premium</a></li>
+          <li class = "dropdown">
+            <input type = "checkbox" id = "fasilitas-checkbox" class = "menu-checkbox">
+            <label for = "fasilitas-checkbox">Fasilitas</label>
+            <ul class = "submenu">
+                <li><a href="Tugas/facilities.html" target="content-frame">Petualangan Alam</a></li>
+                <li class = "dropdown">
+                    <input type = "checkbox" id = "kolam-checkbox" class = "menu-checkbox">
+                    <label for = "kolam-checkbox">Kolam Renang</label>
+                    <ul class = "submenu">
+                        <li><a href="Tugas/facilities.html" target="content-frame">Sumber Air Panas</a></li>
+                        <li class = "dropdown">
+                            <input type = "checkbox" id = "anak-dewasa-checkbox" class = "menu-checkbox">
+                            <label for = "anak-dewasa-checkbox">Kolam Anak & Dewasa</label>
+                            <ul class = "submenu">
+                                <li><a href="Tugas/facilities.html" target="content-frame">Reguler</a></li>
+                                <li><a href="Tugas/facilities.html" target="content-frame">Premium</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                  </li>
-                </ul>
-              </li>
-              <li><a href="Tugas/facilities.html">Pusat Kebugaran</a></li>
-              <li><a href="Tugas/facilities.html">Ruang Rapat</a></li>
+                </li>
+                <li><a href="Tugas/facilities.html" target="content-frame">Pusat Kebugaran</a></li>
+                <li><a href="Tugas/facilities.html" target="content-frame">Ruang Rapat</a></li>
             </ul>
-          </li>
+        </li>
           <li><a href="Tugas/booking.html" target="content-frame">Pesan Sekarang</a></li>
         </ul>
       </nav>

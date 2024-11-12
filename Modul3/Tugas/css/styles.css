@@ -1,41 +1,185 @@
-/* Atur body dan element dasar */
-body {
-  font-family: Arial, sans-serif;
+/* Reset global styles */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Wrapper untuk menempatkan footer di bawah */
 .wrapper {
   flex: 1;
 }
 
-/* Header styling */
-header {
+/* Header Styling */
+/* header {
   background-color: #333;
-  color: #fff;
-  padding: 10px;
+  color: white;
   text-align: center;
+  padding: 40px 0;
+  position: relative;
+} */
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #444;
+  overflow: hidden;
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #555;
 }
 
 nav ul {
-  list-style-type: none;
+  background-color: #444;
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
 }
 
 nav ul li {
-  display: inline;
-  margin-right: 15px;
+  position: relative;
 }
 
-nav ul li a {
+nav ul li a, nav ul li label {
   color: #fff;
+  padding: 14px 20px;
   text-decoration: none;
+  display: block;
 }
 
+nav ul li a:hover, nav ul li label:hover {
+  background-color: rgb(66, 66, 66);
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.menu-checkbox:checked + label + .submenu {
+  display: block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #444;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  top: 100%;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.submenu li {
+  position: relative;
+}
+
+.submenu .submenu {
+  left: 100%;
+  top: 0;
+}
+
+/* Content Section */
+#content {
+  padding: 20px;
+}
+
+#content iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+.content {
+  display: flex;
+  padding: 20px;
+}
+
+.video-section {
+  width: 30%;
+  margin-right: 20px;
+}
+
+.video-section iframe {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.foto {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.foto img {
+  width: 100%;
+  height: auto;
+  border: 3px solid #333;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .submenu {
+    position: static;
+    top: auto;
+    left: auto;
+    background-color: #444;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .submenu .submenu {
+    left: 100%;
+    top: 0;
+  }
+}
 /* Konten dengan iframe */
 #content {
   padding: 20px;
@@ -53,6 +197,7 @@ footer {
   text-align: center;
   padding: 10px;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
