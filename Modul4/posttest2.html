@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Menghitung Penjualan</title>
+    <style>
+        .center {
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        function selectItem() {
+            var itemCode = document.getElementById("itemCode").value;
+            var price, itemName;
+            if (itemCode === "Buku") {
+                itemName = "Buku";
+                price = 5000;
+            } else if (itemCode === "Penggaris") {
+                itemName = "Penggaris";
+                price = 1500;
+            } else if (itemCode === "Pulpen") {
+                itemName = "Pulpen";
+                price = 2000;
+            }
+            document.getElementById("itemName").value = itemName;
+            document.getElementById("price").value = price;
+        }
+
+        function calculate() {
+            var price = parseInt(document.getElementById("price").value);
+            var quantity = parseInt(document.getElementById("quantity").value);
+            var discountPercent = parseFloat(document.getElementById("discountPercent").value) / 100;
+            var totalAmount, discount, finalAmount;
+
+            totalAmount = price * quantity;
+            discount = totalAmount * discountPercent;
+            finalAmount = totalAmount - discount;
+
+            document.getElementById("totalAmount").value = totalAmount;
+            document.getElementById("discount").value = discount;
+            document.getElementById("finalAmount").value = finalAmount;
+        }
+
+        function displayReceipt() {
+            var itemName = document.getElementById("itemName").value;
+            var quantity = document.getElementById("quantity").value;
+            var price = document.getElementById("price").value;
+            var totalAmount = document.getElementById("totalAmount").value;
+            var discount = document.getElementById("discount").value;
+            var finalAmount = document.getElementById("finalAmount").value;
+
+            document.getElementById("salesReceipt").innerHTML = 
+            `<h2>Nota Penjualan</h2>
+            <table>
+                <tr><td>Nama Barang</td><td>= ${itemName}</td></tr>
+                <tr><td>Jumlah Beli</td><td>= ${quantity}</td></tr>
+                <tr><td colspan="2">--------------------------------</td></tr>
+                <tr><td>Harga</td><td>= ${price}</td></tr>
+                <tr><td>Jumlah Bayar</td><td>= ${totalAmount}</td></tr>
+                <tr><td>Potongan</td><td>= ${discount}</td></tr>
+                <tr><td colspan="2">===================</td></tr>
+                <tr><td>Total Bayar</td><td>= ${finalAmount}</td></tr>
+            </table>`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Form Menghitung Penjualan</h1>
+    <form name="salesForm">
+        <table border="1">
+            <tr>
+                <td class="center" colspan="2"><label>Perhitungan Penjualan</label></td>
+            </tr>
+            <tr>
+                <td><label>Kode Barang</label></td>
+                <td>
+                    <select name="itemCode" id="itemCode" onchange="selectItem()">
+                        <option value="">-- Pilih Salah satu --</option>
+                        <option value="Buku">B001</option>
+                        <option value="Penggaris">B002</option>
+                        <option value="Pulpen">B003</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Jumlah Beli</label></td>
+                <td><input type="number" name="quantity" id="quantity" size="10" maxlength="10" onchange="calculate()" /></td>
+            </tr>
+            <tr>
+                <td><label>Nama Barang</label></td>
+                <td><input type="text" name="itemName" id="itemName" size="10" maxlength="10"  /></td>
+            </tr>
+            <tr>
+                <td><label>Harga</label></td>
+                <td><input type="text" name="price" id="price" size="10" maxlength="10"  /></td>
+            </tr>
+            <tr>
+                <td><label>Jumlah Bayar</label></td>
+                <td><input type="text" name="totalAmount" id="totalAmount" size="10" maxlength="10"  /></td>
+            </tr>
+            <tr>
+                <td><label>Potongan</label><input type="text" name="discountPercent" id="discountPercent" size="3" maxlength="3" value="10" onchange="calculate()" />%</td>
+                <td><input type="text" name="discount" id="discount" size="10" maxlength="10"  /></td>
+            </tr>
+            <tr>
+                <td><label>Total Bayar</label></td>
+                <td><input type="text" name="finalAmount" id="finalAmount" size="10" maxlength="10"  /></td>
+            </tr>
+            <tr>
+                <td class="center" colspan="2">
+                    <button type="button" name="display" value="display" onclick="displayReceipt()">Tampilkan</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <div id="salesReceipt"></div>
+</body>
+</html>
