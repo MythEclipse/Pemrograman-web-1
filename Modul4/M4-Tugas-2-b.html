@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Tambah Data Fasilitas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+      }
+      .form-container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+      h1 {
+        text-align: center;
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="number"],
+      input[type="file"],
+      input[type="time"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      .inline-group {
+        display: flex;
+        align-items: center;
+      }
+      .inline-group label {
+        margin-left: 10px;
+        font-weight: normal;
+      }
+      .checkbox-label {
+        display: flex;
+        align-items: center;
+      }
+      .checkbox-label input[type="checkbox"] {
+        margin-right: 10px;
+      }
+      .form-actions {
+        text-align: center;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      .btn-save {
+        background-color: #007bff;
+        color: white;
+        margin-right: 10px;
+      }
+      .btn-reset {
+        background-color: #ffc107;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Form Tambah Data Fasilitas</h1>
+      <form>
+        <div class="form-group">
+          <label for="id_fasilitas">ID Fasilitas:</label>
+          <input type="number" id="id_fasilitas" name="id_fasilitas" required />
+        </div>
+        <div class="form-group">
+          <label for="nama_fasilitas">Nama Fasilitas:</label>
+          <input type="text" id="nama_fasilitas" name="nama_fasilitas" required />
+        </div>
+        <div class="form-group">
+          <label for="fasilitas">Fasilitas:</label>
+          <input type="text" id="fasilitas" name="fasilitas" required />
+        </div>
+        <div class="form-group">
+          <label for="harga_weekend">Harga Weekend:</label>
+          <input type="number" id="harga_weekend" name="harga_weekend" required />
+        </div>
+        <div class="form-group">
+          <label for="harga_weekday">Harga Weekday:</label>
+          <input type="number" id="harga_weekday" name="harga_weekday" required />
+        </div>
+        <div class="form-group">
+          <label for="kuota">Kuota:</label>
+          <input type="number" id="kuota" name="kuota" required />
+        </div>
+        <div class="form-group">
+          <label for="jam_buka">Jam Buka:</label>
+          <input type="time" id="jam_buka" name="jam_buka" required />
+        </div>
+        <div class="form-group">
+          <label for="jam_tutup">Jam Tutup:</label>
+          <input type="time" id="jam_tutup" name="jam_tutup" required />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-save">Simpan</button>
+          <button type="reset" class="btn-reset">Batal</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    const idFasilitas = document.getElementById('id_fasilitas').value;
+    const namaFasilitas = document.getElementById('nama_fasilitas').value;
+    const fasilitas = document.getElementById('fasilitas').value;
+    const hargaWeekend = document.getElementById('harga_weekend').value;
+    const hargaWeekday = document.getElementById('harga_weekday').value;
+    const kuota = document.getElementById('kuota').value;
+    const jamBuka = document.getElementById('jam_buka').value;
+    const jamTutup = document.getElementById('jam_tutup').value;
+
+    if (!idFasilitas || !namaFasilitas || !fasilitas || !hargaWeekend || !hargaWeekday || !kuota || !jamBuka || !jamTutup) {
+      alert('Semua field harus diisi!');
+      event.preventDefault();
+    } else if (isNaN(hargaWeekend) || isNaN(hargaWeekday) || isNaN(kuota)) {
+      alert('Harga dan kuota harus berupa angka!');
+      event.preventDefault();
+    } else if (parseInt(hargaWeekend) < 0 || parseInt(hargaWeekday) < 0 || parseInt(kuota) < 0) {
+      alert('Harga dan kuota tidak boleh negatif!');
+      event.preventDefault();
+    }
+  });
+</script>

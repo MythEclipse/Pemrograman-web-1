@@ -115,3 +115,20 @@
     </div>
   </body>
 </html>
+<script>
+  document.querySelector("form").addEventListener("submit", function (event) {
+    const idKamar = document.getElementById("id_kamar").value;
+    const gambarRuangan = document.getElementById("gambar_ruangan").value;
+    const jenisKamar = document.getElementById("jenis_kamar").value;
+    const hargaKamar = document.getElementById("harga_kamar").value;
+    const fasilitasKamar = document.getElementById("fasilitas_kamar").value;
+
+    if (!idKamar || !gambarRuangan || !jenisKamar || !hargaKamar || !fasilitasKamar) {
+      alert("Semua field harus diisi!");
+      event.preventDefault();
+    } else if (isNaN(hargaKamar) || hargaKamar <= 0) {
+      alert("Harga harus berupa angka positif!");
+      event.preventDefault();
+    }
+  });
+</script>
