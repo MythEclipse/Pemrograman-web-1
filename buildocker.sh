@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Image and container names
-IMAGE_NAME="PW1"
-CONTAINER_NAME="myPW1"
+IMAGE_NAME="pw1"
+CONTAINER_NAME="mypw1"
 
 # Function to handle errors
 handle_error() {
