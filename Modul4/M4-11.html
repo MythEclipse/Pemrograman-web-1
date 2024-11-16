@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang = "id">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name = "viewport" content = "width=device-width", initial-scale = 1.0>
+        <title>Pemilihan</title>
+    </head>
+    <body>
+        <script>
+            nilai = 80;
+            let nh;
+
+            switch(true){
+                case nilai >= 81 && nilai <= 100 :
+                    nh = "A";
+                    break;
+
+                case nilai >= 75 :
+                    nh = "AB";
+                    break;
+
+                case nilai >= 69 :
+                    nh = "B";
+                    break;
+                
+                case nilai >= 63 :
+                    nh = "BC";
+                    break;
+
+                case nilai >= 57 :
+                    nh = "C";
+                    break;
+
+                case nilai >= 51 :
+                    nh = "CD";
+                    break;
+
+                case nilai >= 45 :
+                    nh = "D";
+                    break;
+                
+                default :
+                    nh = "E"
+                    break;
+            }
+            
+            document.write("Nilai Anda = " +nh);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang = "id">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name = "viewport" content = "width=device-width", initial-scale = 1.0>
+        <title>Array</title>
+    </head>
+    <script>
+        let buah = ["Anggur", "Apel", "Jeruk", "Mangga"];
+        buah[4] = "Semangka";
+
+        document.write("Buah-Buahan : <br>");
+        document.write("0 : " + buah[0] + "<br>");
+        document.write("1 : " + buah[1] + "<br>");
+        document.write("2 : " + buah[2] + "<br>");
+        document.write("3 : " + buah[3] + "<br>");
+        document.write("4 : " + buah[4] + "<br>");
+
+        document.write("<br><br>Buah-Buahan dengan for : <br>");
+        for (let i = 0; i < buah.length; i++){
+            document.write(i + " : " + buah[i] + "<br>");
+        }
+
+        buah[2] = "Kedondong";
+        buah[3] = "";
+        
+        document.write("<br><br>Sekarang Buah-Buahan : <br>");
+        for (let i = 0; i < buah.length; i++){
+            document.write(i + " : " + buah[i] + "<br>");
+        }
+    </script>
+    <body>
+    </body>
+</html>

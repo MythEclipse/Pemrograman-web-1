@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validasi Username dan Password</title>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="button" onclick="validateForm()">Login</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const correctUsername = 'admin';
+            const correctPassword = '123';
+
+            if (username === correctUsername && password === correctPassword) {
+                alert('Login Sukses');
+                window.location.href = './Tugas1/index.html';
+            } else {
+                alert('Login Gagal');
+                window.location.href = './Tugas1/Login.html';
+            }
+        }
+    </script>
+</body>
+</html>

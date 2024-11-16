@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = "id">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name = "viewport" content = "width=device-width", initial-scale = 1.0>
+        <title>Array 1 Dimensi</title>
+        <style>
+            body{
+                font-family : Arial, sans-serif;
+                margin : 20px;
+            }
+            #output{
+                margin-top : 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Contoh Array 2 Dimensi dan 3 Dimensi</h1>
+
+        <button onclick = "tampilkanArray2D()">Tampilkan Array 2D</button>
+        <button onclick = "tampilkanArray3D()">Tampilkan Array 3D</button>
+
+        <div id = "output"></div>
+
+        <script>
+            const array2D = [
+                ["Anggur", "Apel", "Jeruk"],
+                ["Mangga", "Pisang", "Kiwi"],
+                ["Semangka", "Nanas", "Stroberi"]
+            ];
+            const array3D = [
+                [
+                    ["Anggur", "Apel"],
+                    ["Jeruk", "Mangga"]
+                ],
+                [
+                    ["Pisang", "Kiwi"],
+                    ["Semangka", "Nanas"]
+                ],
+                [
+                    ["Stroberi", "Blueberry"],
+                    ["Raspberry", "Cherry"]
+                ]
+            ];
+
+            function tampilkanArray2D(){
+                const output = document.getElementById("output");
+                let result = "<strong>Isi Array 2D : </strong><br>";
+                array2D.forEach((row) => {
+                    result += row.join(", ") + "<br>";
+                });
+                output.innerHTML = result;
+            }
+            function tampilkanArray3D(){
+                const output = document.getElementById("output");
+                let result = "<strong>Isi Array 3D : </strong><br>";
+                array3D.forEach((matrix) => {
+                    matrix.forEach((row) => {
+                        result += row.join(", ") + "<br>";
+                    });
+                    result += "<br>";
+                });
+                output.innerHTML = result;
+            }
+        </script>
+    </body>
+</html>
