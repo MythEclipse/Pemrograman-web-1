@@ -9,7 +9,8 @@ handle_error() {
     echo "Error: $1"
     exit 1
 }
-
+#docker stop mypw1
+#docker rm mypw1
 # Check if the container already exists
 if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
     echo "Stopping and removing existing container..."
@@ -35,6 +36,6 @@ docker build --no-cache -t $IMAGE_NAME . || handle_error "Failed to build Docker
 
 # Run a new container with port mapping
 echo "Running new container..."
-docker run -d -p 3092:3092 --name $CONTAINER_NAME $IMAGE_NAME || handle_error "Failed to run the new container."
+docker run -d -p 3092:3092 --name $CONTAINER_NAME --restart always $IMAGE_NAME || handle_error "Failed to run the new container."
 
 echo "Deployment completed successfully!"
