@@ -45,13 +45,13 @@ Untuk memulai proyek ini secara lokal, ikuti langkah-langkah berikut:
 5. Verifikasi versi Node.js:
 
     ```cmd
-    node -v # harus mencetak `v22.11.0`
+    node -v 
     ```
 
 6. Verifikasi versi npm:
 
     ```cmd
-    npm -v # harus mencetak `10.9.0`
+    npm -v 
     ```
 
 7. Instal `pnpm` secara global menggunakan `npm`:
