@@ -1,14 +1,17 @@
 # Use the official Node.js image as the base image
 FROM node:22-alpine
 
+# Install pnpm
+RUN npm install -g pnpm
+
 # Create and change to the app directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package.json and pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN pnpm install --prod
 
 # Copy the rest of the application code
 COPY . .
