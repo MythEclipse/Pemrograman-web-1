@@ -8,7 +8,7 @@ RUN npm install -g pnpm
 WORKDIR /app
 
 # Copy package.json and pnpm-lock.yaml
-COPY package.json pnpm-lock.yaml ./
+COPY package.json pnpm-lock.yaml ./ 
 
 # Install dependencies
 RUN pnpm install --prod
@@ -24,4 +24,4 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 USER appuser
 
 # Define the command to run the application
-CMD ["node", "server.js"]
+CMD ["pnpm", "run", "start"]
