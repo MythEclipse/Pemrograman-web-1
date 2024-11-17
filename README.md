@@ -123,13 +123,13 @@ Untuk memulai proyek ini secara lokal, ikuti langkah-langkah berikut:
 2. Clone repositori:
 
     ```bash
-    git clone https://github.com/Asepharyana71/asepharyana.my.id.git
+    git clone https://github.com/MythEclipse/Pemrograman-web-1.git
     ```
 
 3. Masuk ke direktori proyek:
 
     ```bash
-    cd asepharyana.my.id
+    cd Pemrograman-web-1
     ```
 
 4. Bangun image Docker:
