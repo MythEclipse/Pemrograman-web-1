@@ -1,26 +1,29 @@
-import express from 'express';
+import express, { Response } from 'express';
 import path from 'path';
 import fs from 'fs';
 
-const app = express();
-const PORT = 3092;
+const app: express.Application = express();
+const PORT: number = 3092;
 
-// Melayani file statis dari semua modul
 app.use(express.static(path.resolve('')));
 
-// Fungsi untuk membaca dan mengelompokkan file HTML berdasarkan modul
-function getHtmlLinks() {
-    const modulesPath = path.resolve('');
-    const modules = fs.readdirSync(modulesPath).filter(dir => dir.startsWith('Modul'));
+interface HtmlLink {
+    name: string;
+    url: string;
+}
 
-    let links = {};
+function getHtmlLinks(): Record<string, HtmlLink[]> {
+    const modulesPath: string = path.resolve('');
+    const modules: string[] = fs.readdirSync(modulesPath).filter((dir: string) => dir.startsWith('Modul'));
 
-    modules.forEach(modul => {
-        const modulePath = path.join(modulesPath, modul);
-        const files = fs.readdirSync(modulePath).filter(file => file.endsWith('.html'));
+    const links: Record<string, HtmlLink[]> = {};
 
-        links[modul] = files.map(file => {
-            const filePath = path.join(modul, file);
+    modules.forEach((modul: string) => {
+        const modulePath: string = path.join(modulesPath, modul);
+        const files: string[] = fs.readdirSync(modulePath).filter((file: string) => file.endsWith('.html'));
+
+        links[modul] = files.map((file: string) => {
+            const filePath: string = path.join(modul, file);
             return { name: file, url: `/${filePath}` };
         });
     });
@@ -28,10 +31,9 @@ function getHtmlLinks() {
     return links;
 }
 
-// Endpoint untuk landing page dinamis
-app.get('/', (req, res) => {
-    const links = getHtmlLinks();
-    let htmlContent = `
+app.get('/', (_req: express.Request, res: Response): void => {
+    const links: Record<string, HtmlLink[]> = getHtmlLinks();
+    let htmlContent: string = `
         <html>
         <head>
             <title>Landing Page</title>
@@ -82,9 +84,9 @@ app.get('/', (req, res) => {
         <body>
             <h1>Praktikum Pemrograman Web 1</h1>`;
 
-    Object.keys(links).forEach(modul => {
+    Object.keys(links).forEach((modul: string) => {
         htmlContent += `<h2>${modul}</h2><ul>`;
-        links[modul].forEach(link => {
+        links[modul].forEach((link: HtmlLink) => {
             htmlContent += `<a href="${link.url}"><li>${link.name}</li></a>`;
         });
         htmlContent += `</ul>`;
@@ -97,6 +99,6 @@ app.get('/', (req, res) => {
     res.send(htmlContent);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, (): void => {
     console.log(`Server berjalan di http://localhost:${PORT}`);
 });

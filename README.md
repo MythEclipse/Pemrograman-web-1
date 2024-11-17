@@ -115,3 +115,34 @@ Untuk memulai proyek ini secara lokal, ikuti langkah-langkah berikut:
     ```bash
     pnpm run dev
     ```
+
+#### Setup Docker
+
+1. Pastikan Docker sudah terinstal di sistem Anda. Jika belum, Anda dapat mengunduh dan menginstalnya dari [situs resmi Docker](https://www.docker.com/get-started).
+
+2. Clone repositori:
+
+    ```bash
+    git clone https://github.com/Asepharyana71/asepharyana.my.id.git
+    ```
+
+3. Masuk ke direktori proyek:
+
+    ```bash
+    cd asepharyana.my.id
+    ```
+
+4. Bangun image Docker:
+
+    ```bash
+    docker build -t pemrograman-web-1 .
+    ```
+
+5. Jalankan container Docker:
+
+    ```bash
+    docker run -p 3000:3092 pemrograman-web-1
+    ```
+
+6. Akses aplikasi di browser melalui `http://localhost:3000`.
+
