@@ -1,5 +1,5 @@
-# Use the official Node.js image as the build image
-FROM node:22-alpine AS build
+# Use the official Node.js image as the base image
+FROM node:22-alpine
 
 # Install pnpm
 RUN npm install -g pnpm
@@ -18,15 +18,6 @@ COPY . .
 
 # Build the application
 RUN pnpm run build
-
-# Use a smaller base image for the final image
-FROM node:22-alpine
-
-# Create and change to the app directory
-WORKDIR /app
-
-# Copy built application from the build stage
-COPY --from=build /app /app
 
 # Expose the port the app runs on
 EXPOSE 3092
