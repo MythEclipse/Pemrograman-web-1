@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<html lang = "id">
-    <head>
-        <meta charset = "UTF-8" />
-        <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
-        <title>Penerapan Event Handling dengan JQuery</title>
-        <script src = "./js/jquery-3.7.1.js"></script>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin : 20px;
-            }
-            .box {
-                width : 100px;
-                height : 100px;
-                background-color : lightblue;
-                display : inline-block;
-                text-align : center;
-                line-height : 100px;
-                font-weight : bold;
-                cursor : pointer;
-                transition : background-color 0.3s;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Penerapan Event Handling dengan JQuery</h1>
-        <div class = "box" id = "box1">Box 1</div>
-        <div class = "box" id = "box2">Box 2</div>
-        <div class = "box" id = "box3">Box 3</div>
-        <script>
-            $(document).ready(function(){
-                $(".box").on("click", function(){
-                    $(this).toggleClass("active");
-                    alert('Anda mengklik ${$(this).text()}');
-                });
-                $(".box").on("mouseenter", function(){
-                    $(this).css("background-color", "lightgreen");
-                });
-                $(".box").on("mouseleave", function(){
-                    $(this).css("background-color", "lightblue");
-                });
-            });
-        </script>
-    </body>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0" />
+    <title>Penerapan Event Handling dengan JQuery</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        display: inline-block;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Penerapan Event Handling dengan JQuery</h1>
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2">Box 2</div>
+    <div class="box" id="box3">Box 3</div>
+    <script>
+      $(document).ready(function () {
+        $(".box").on("click", function () {
+          $(this).toggleClass("active");
+          alert(`Anda mengklik ${$(this).text()}`);
+        });
+        $(".box").on("mouseenter", function () {
+          $(this).css("background-color", "lightgreen");
+        });
+        $(".box").on("mouseleave", function () {
+          $(this).css("background-color", "lightblue");
+        });
+      });
+    </script>
+  </body>
 </html>

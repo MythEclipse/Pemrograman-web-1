@@ -2,7 +2,7 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akses Kamera dengan JQuery</title>
     <script src="./js/jquery-3.7.1.js"></script>
   </head>
@@ -13,6 +13,11 @@
     <script>
       $(document).ready(function () {
         const video = document.createElement("video");
+        video.setAttribute("autoplay", "true");
+        video.style.width = "10%";
+        video.style.height = "auto";
+        document.body.appendChild(video);
+
         let mediaStream;
 
         $("#start").click(function () {
@@ -26,6 +31,7 @@
               console.error("Gagal mengakses Kamera: " + err);
             });
         });
+
         $("#stop").click(function () {
           if (mediaStream) {
             mediaStream.getTracks().forEach((track) => track.stop());
