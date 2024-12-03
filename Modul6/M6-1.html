@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <title>JQuery</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".tampil").hide();
+        $(".sembunyi").click(function () {
+          $(".uniku").hide("slow");
+          $(".tampil").show();
+          $(".sembunyi").hide();
+        });
+        $(".tampil").click(function () {
+          $(".uniku").show("slow");
+          $(".tampil").hide();
+          $(".sembunyi").show();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button class="sembunyi">Hide</button>
+    <button class="tampil">Show</button>
+    <div class="uniku">Universitas Kuningan</div>
+  </body>
+</html>
