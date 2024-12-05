@@ -1,0 +1,23 @@
+.nav-link {
+  font-family: impact;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+
+.nav-link:hover {
+  color: rgb(182, 215, 243);
+}
+
+.jumbotron {
+  background-image: url("../image/gedungfkom2.png");
+  background-size: cover;
+  height: 500px;
+}
+
+@media (min-width: 992px) {
+  .nav-link {
+    font-size: 28px; /* Ukuran font lebih besar hanya untuk layar besar */
+    margin-right: 40px; /* Margin lebih besar */
+  }
+}
