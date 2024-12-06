@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Hotel</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #e0f7fa; /* Warna biru muda */
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: #0277bd; /* Warna biru tua */
+        color: white;
+        padding: 20px 0;
+      }
+      header h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+      header img {
+        max-height: 120px;
+        border-radius: 10px;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav a {
+        font-weight: 500;
+      }
+      iframe {
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      footer {
+        background-color: #0277bd; /* Warna biru tua */
+        color: white;
+        font-size: 0.9rem;
+        padding: 15px 0;
+      }
+      .dropdown-submenu {
+        position: relative;
+      }
+      .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="text-center">
+        <div class="d-flex align-items-center justify-content-center gap-4">
+          <h1>Best Hotel</h1>
+          <img
+            src="../Modul1/gambar/modern-hotel-room-with-stunning-city-view_14117-1135861.jpg"
+            alt="Hotel Image"
+          />
+        </div>
+      </header>
+
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light shadow-sm rounded"
+      >
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="Tugas1/home.html"
+                  target="content-frame"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="Tugas1/rooms.html"
+                  target="content-frame"
+                  >Kamar</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="fasilitasDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Fasilitas
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="fasilitasDropdown">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="Tugas1/PetualanganAlam.html"
+                      target="content-frame"
+                      >Petualangan Alam</a
+                    >
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a
+                      class="dropdown-item dropdown-toggle"
+                      href="Tugas1/facilities.html"
+                      >Kolam Renang</a
+                    >
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a
+                          class="dropdown-item"
+                          href="Tugas1/SumberAirPanas.html"
+                          target="content-frame"
+                          >Sumber Air Panas</a
+                        >
+                      </li>
+                      <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#"
+                          >Kolam Anak & Dewasa</a
+                        >
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="Tugas1/KolamReguler.html"
+                              target="content-frame"
+                              >Reguler</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item"
+                              href="Tugas1/KolamPremium.html"
+                              target="content-frame"
+                              >Premium</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="Tugas1/Kebugaran.html"
+                      target="content-frame"
+                      >Pusat Kebugaran</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="Tugas1/RuangRapat.html"
+                      target="content-frame"
+                      >Ruang Rapat</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="Tugas1/booking.html"
+                  target="content-frame"
+                  >Pesan Sekarang</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <main class="my-4">
+        <iframe
+          name="content-frame"
+          src="Tugas1/home.html"
+          class="w-100"
+          style="height: 600px"
+        ></iframe>
+      </main>
+
+      <footer class="text-center">
+        <p class="mb-0">&copy; 2024 Best Hotel. All Rights Reserved.</p>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".dropdown-submenu")
+          .on("mouseenter", function () {
+            $(this).children(".dropdown-menu").show();
+          })
+          .on("mouseleave", function () {
+            $(this).children(".dropdown-menu").hide();
+          });
+      });
+    </script>
+  </body>
+</html>
