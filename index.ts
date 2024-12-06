@@ -1,39 +1,48 @@
-import express, { Response } from 'express';
-import path from 'path';
-import fs from 'fs';
+import express, { Response } from "express";
+import path from "path";
+import fs from "fs";
 
 const app: express.Application = express();
 const PORT: number = 3092;
 
-app.use(express.static(path.resolve('')));
+app.use(express.static(path.resolve("")));
 
 interface HtmlLink {
-    name: string;
-    url: string;
+  name: string;
+  url: string;
 }
 
 function getHtmlLinks(): Record<string, HtmlLink[]> {
-    const modulesPath: string = path.resolve('');
-    const modules: string[] = fs.readdirSync(modulesPath).filter((dir: string) => dir.startsWith('Modul'));
-
-    const links: Record<string, HtmlLink[]> = {};
-
-    modules.forEach((modul: string) => {
-        const modulePath: string = path.join(modulesPath, modul);
-        const files: string[] = fs.readdirSync(modulePath).filter((file: string) => file.endsWith('.html'));
-
-        links[modul] = files.map((file: string) => {
-            const filePath: string = path.join(modul, file);
-            return { name: file, url: `/${filePath}` };
-        });
+  const modulesPath: string = path.resolve("");
+  const modules: string[] = fs
+    .readdirSync(modulesPath)
+    .filter((dir: string) => dir.startsWith("Modul"))
+    .sort((a: string, b: string) => {
+      const numA = parseInt(a.replace("Modul", ""), 10);
+      const numB = parseInt(b.replace("Modul", ""), 10);
+      return numA - numB;
     });
 
-    return links;
+  const links: Record<string, HtmlLink[]> = {};
+
+  modules.forEach((modul: string) => {
+    const modulePath: string = path.join(modulesPath, modul);
+    const files: string[] = fs
+      .readdirSync(modulePath)
+      .filter((file: string) => file.endsWith(".html"));
+
+    links[modul] = files.map((file: string) => {
+      const filePath: string = path.join(modul, file);
+      return { name: file, url: `/${filePath}` };
+    });
+  });
+
+  return links;
 }
 
-app.get('/', (_req: express.Request, res: Response): void => {
-    const links: Record<string, HtmlLink[]> = getHtmlLinks();
-    let htmlContent: string = `
+app.get("/", (_req: express.Request, res: Response): void => {
+  const links: Record<string, HtmlLink[]> = getHtmlLinks();
+  let htmlContent: string = `
         <html>
         <head>
             <title>Landing Page</title>
@@ -84,21 +93,21 @@ app.get('/', (_req: express.Request, res: Response): void => {
         <body>
             <h1>Praktikum Pemrograman Web 1</h1>`;
 
-    Object.keys(links).forEach((modul: string) => {
-        htmlContent += `<h2>${modul}</h2><ul>`;
-        links[modul].forEach((link: HtmlLink) => {
-            htmlContent += `<a href="${link.url}"><li>${link.name}</li></a>`;
-        });
-        htmlContent += `</ul>`;
+  Object.keys(links).forEach((modul: string) => {
+    htmlContent += `<h2>${modul}</h2><ul>`;
+    links[modul].forEach((link: HtmlLink) => {
+      htmlContent += `<a href="${link.url}"><li>${link.name}</li></a>`;
     });
+    htmlContent += `</ul>`;
+  });
 
-    htmlContent += `
+  htmlContent += `
         </body>
         </html>`;
 
-    res.send(htmlContent);
+  res.send(htmlContent);
 });
 
 app.listen(PORT, (): void => {
-    console.log(`Server berjalan di http://localhost:${PORT}`);
+  console.log(`Server berjalan di http://localhost:${PORT}`);
 });
