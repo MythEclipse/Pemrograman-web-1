@@ -70,6 +70,7 @@
     </form>
 
     <script src="../js/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       $(document).ready(function () {
         $("#loginButton").click(function () {
@@ -79,12 +80,35 @@
           const correctPassword = "123";
 
           if (username === correctUsername && password === correctPassword) {
-            alert("Login Sukses");
-            window.location.href = "./AdminPage.html";
+            Swal.fire({
+              title: "Login Sukses",
+              text: "Anda akan diarahkan ke halaman Admin.",
+              icon: "success",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "./AdminPage.html";
+              }
+            });
           } else {
-            alert("Login Gagal");
-            window.location.href = "./login.html";
+            Swal.fire({
+              title: "Login Gagal",
+              text: "Username atau password salah.",
+              icon: "error",
+              confirmButtonText: "OK",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location.href = "./login.html";
+              }
+            });
           }
+        });
+
+        Swal.fire({
+          title: "Info",
+          text: "Username: Admin, Password: 123",
+          icon: "info",
+          confirmButtonText: "OK",
         });
       });
     </script>

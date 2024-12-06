@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Tambah Data Fasilitas</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -89,35 +97,35 @@
       <form>
         <div class="form-group">
           <label for="id_fasilitas">ID Fasilitas:</label>
-          <input type="number" id="id_fasilitas" name="id_fasilitas"  />
+          <input type="number" id="id_fasilitas" name="id_fasilitas" />
         </div>
         <div class="form-group">
           <label for="nama_fasilitas">Nama Fasilitas:</label>
-          <input type="text" id="nama_fasilitas" name="nama_fasilitas"  />
+          <input type="text" id="nama_fasilitas" name="nama_fasilitas" />
         </div>
         <div class="form-group">
           <label for="fasilitas">Fasilitas:</label>
-          <input type="text" id="fasilitas" name="fasilitas"  />
+          <input type="text" id="fasilitas" name="fasilitas" />
         </div>
         <div class="form-group">
           <label for="harga_weekend">Harga Weekend:</label>
-          <input type="number" id="harga_weekend" name="harga_weekend"  />
+          <input type="number" id="harga_weekend" name="harga_weekend" />
         </div>
         <div class="form-group">
           <label for="harga_weekday">Harga Weekday:</label>
-          <input type="number" id="harga_weekday" name="harga_weekday"  />
+          <input type="number" id="harga_weekday" name="harga_weekday" />
         </div>
         <div class="form-group">
           <label for="kuota">Kuota:</label>
-          <input type="number" id="kuota" name="kuota"  />
+          <input type="number" id="kuota" name="kuota" />
         </div>
         <div class="form-group">
           <label for="jam_buka">Jam Buka:</label>
-          <input type="time" id="jam_buka" name="jam_buka"  />
+          <input type="time" id="jam_buka" name="jam_buka" />
         </div>
         <div class="form-group">
           <label for="jam_tutup">Jam Tutup:</label>
-          <input type="time" id="jam_tutup" name="jam_tutup"  />
+          <input type="time" id="jam_tutup" name="jam_tutup" />
         </div>
         <div class="form-actions">
           <button type="submit" class="btn-save">Simpan</button>
@@ -125,28 +133,55 @@
         </div>
       </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      $("form").on("submit", function (event) {
+        const idFasilitas = $("#id_fasilitas").val();
+        const namaFasilitas = $("#nama_fasilitas").val();
+        const fasilitas = $("#fasilitas").val();
+        const hargaWeekend = $("#harga_weekend").val();
+        const hargaWeekday = $("#harga_weekday").val();
+        const kuota = $("#kuota").val();
+        const jamBuka = $("#jam_buka").val();
+        const jamTutup = $("#jam_tutup").val();
+
+        if (
+          !idFasilitas ||
+          !namaFasilitas ||
+          !fasilitas ||
+          !hargaWeekend ||
+          !hargaWeekday ||
+          !kuota ||
+          !jamBuka ||
+          !jamTutup
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Semua field harus diisi!",
+          });
+          event.preventDefault();
+        } else if (isNaN(hargaWeekend) || isNaN(hargaWeekday) || isNaN(kuota)) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Harga dan kuota harus berupa angka!",
+          });
+          event.preventDefault();
+        } else if (
+          parseInt(hargaWeekend) < 0 ||
+          parseInt(hargaWeekday) < 0 ||
+          parseInt(kuota) < 0
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Harga dan kuota tidak boleh negatif!",
+          });
+          event.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
-<script>
-  document.querySelector('form').addEventListener('submit', function(event) {
-    const idFasilitas = document.getElementById('id_fasilitas').value;
-    const namaFasilitas = document.getElementById('nama_fasilitas').value;
-    const fasilitas = document.getElementById('fasilitas').value;
-    const hargaWeekend = document.getElementById('harga_weekend').value;
-    const hargaWeekday = document.getElementById('harga_weekday').value;
-    const kuota = document.getElementById('kuota').value;
-    const jamBuka = document.getElementById('jam_buka').value;
-    const jamTutup = document.getElementById('jam_tutup').value;
-
-    if (!idFasilitas || !namaFasilitas || !fasilitas || !hargaWeekend || !hargaWeekday || !kuota || !jamBuka || !jamTutup) {
-      alert('Semua field harus diisi!');
-      event.preventDefault();
-    } else if (isNaN(hargaWeekend) || isNaN(hargaWeekday) || isNaN(kuota)) {
-      alert('Harga dan kuota harus berupa angka!');
-      event.preventDefault();
-    } else if (parseInt(hargaWeekend) < 0 || parseInt(hargaWeekday) < 0 || parseInt(kuota) < 0) {
-      alert('Harga dan kuota tidak boleh negatif!');
-      event.preventDefault();
-    }
-  });
-</script>

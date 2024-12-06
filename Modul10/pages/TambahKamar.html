@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form Tambah Data Kamar</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -89,23 +97,23 @@
       <form>
         <div class="form-group">
           <label for="id_kamar">ID Kamar:</label>
-          <input type="number" id="id_kamar" name="id_kamar"  />
+          <input type="number" id="id_kamar" name="id_kamar" />
         </div>
         <div class="form-group">
           <label for="gambar_ruangan">Gambar Ruangan:</label>
-          <input type="file" id="gambar_ruangan" name="gambar_ruangan"  />
+          <input type="file" id="gambar_ruangan" name="gambar_ruangan" />
         </div>
         <div class="form-group">
           <label for="jenis_kamar">Jenis Kamar:</label>
-          <input type="text" id="jenis_kamar" name="jenis_kamar"  />
+          <input type="text" id="jenis_kamar" name="jenis_kamar" />
         </div>
         <div class="form-group">
           <label for="harga_kamar">Harga:</label>
-          <input type="number" id="harga_kamar" name="harga_kamar"  />
+          <input type="number" id="harga_kamar" name="harga_kamar" />
         </div>
         <div class="form-group">
           <label for="fasilitas_kamar">Fasilitas:</label>
-          <input type="text" id="fasilitas_kamar" name="fasilitas_kamar"  />
+          <input type="text" id="fasilitas_kamar" name="fasilitas_kamar" />
         </div>
         <div class="form-actions">
           <button type="submit" class="btn-save">Simpan</button>
@@ -113,22 +121,38 @@
         </div>
       </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      $("form").on("submit", function (event) {
+        const idKamar = $("#id_kamar").val();
+        const gambarRuangan = $("#gambar_ruangan").val();
+        const jenisKamar = $("#jenis_kamar").val();
+        const hargaKamar = $("#harga_kamar").val();
+        const fasilitasKamar = $("#fasilitas_kamar").val();
+
+        if (
+          !idKamar ||
+          !gambarRuangan ||
+          !jenisKamar ||
+          !hargaKamar ||
+          !fasilitasKamar
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Semua field harus diisi!",
+          });
+          event.preventDefault();
+        } else if (isNaN(hargaKamar) || hargaKamar <= 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Harga harus berupa angka positif!",
+          });
+          event.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
-<script>
-  document.querySelector("form").addEventListener("submit", function (event) {
-    const idKamar = document.getElementById("id_kamar").value;
-    const gambarRuangan = document.getElementById("gambar_ruangan").value;
-    const jenisKamar = document.getElementById("jenis_kamar").value;
-    const hargaKamar = document.getElementById("harga_kamar").value;
-    const fasilitasKamar = document.getElementById("fasilitas_kamar").value;
-
-    if (!idKamar || !gambarRuangan || !jenisKamar || !hargaKamar || !fasilitasKamar) {
-      alert("Semua field harus diisi!");
-      event.preventDefault();
-    } else if (isNaN(hargaKamar) || hargaKamar <= 0) {
-      alert("Harga harus berupa angka positif!");
-      event.preventDefault();
-    }
-  });
-</script>
