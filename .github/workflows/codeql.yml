@@ -6,9 +6,13 @@
 # GitHub-native answer, and like the Dependabot config it belongs in a template so
 # every repo gets the same one and a drift is a sync rather than a review.
 #
-# `'javascript-typescript'` is substituted per repo from what the repo actually contains
+# The language list is substituted per repo from what the repo actually contains
 # (javascript-typescript, python, go). Rust and PHP have no CodeQL support, so
 # those repos get no workflow at all rather than one that fails on every push.
+# Do NOT write the placeholder token in this comment: `String.replace` replaces the
+# FIRST occurrence, and a mention up here made it substitute the comment and leave
+# the matrix with a literal placeholder — a workflow that does not parse, in 20
+# repos, while the sync reported success.
 #
 # `autobuild` is included because it is a no-op for the interpreted languages and
 # required for the compiled ones; without it a Go repo would analyse an empty
@@ -42,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [__LANGUAGES__]
+        language: ['javascript-typescript']
     steps:
       - uses: actions/checkout@v4
       - uses: github/codeql-action/init@v3
