@@ -1,0 +1,54 @@
+# Managed by pr-agent-server's nightly ops sync — edit the TEMPLATE, not this file.
+#
+# WHY THIS EXISTS. The Dependabot lane only ever reacts to advisories published
+# against DEPENDENCIES. Nothing in this fleet scanned first-party code, so a
+# tainted-sink bug in the app itself had no path to a report at all. CodeQL is the
+# GitHub-native answer, and like the Dependabot config it belongs in a template so
+# every repo gets the same one and a drift is a sync rather than a review.
+#
+# `'javascript-typescript'` is substituted per repo from what the repo actually contains
+# (javascript-typescript, python, go). Rust and PHP have no CodeQL support, so
+# those repos get no workflow at all rather than one that fails on every push.
+#
+# `autobuild` is included because it is a no-op for the interpreted languages and
+# required for the compiled ones; without it a Go repo would analyse an empty
+# database and report success.
+name: "CodeQL"
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  schedule:
+    # Weekly, off the top of the hour: the fleet's own CI runs on pushes, and a
+    # scheduled scan is the backstop for repos nobody pushed to this month.
+    - cron: "37 3 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [__LANGUAGES__]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
